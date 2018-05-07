@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'requests/index'
+  get 'requests/new'
+  get 'requests/create'
   root 'pages#home'
 
   devise_for :users
