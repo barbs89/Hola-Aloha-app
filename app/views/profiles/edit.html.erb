@@ -17,7 +17,8 @@
     </div>
     <div class="field">
         <%= form.label :image_data %>
-        <%= form.file_field :image_data, required: true%>
+        <%= form.hidden_field :image, value: @profile.image %>
+        <%= form.file_field :image, required: true%>
     </div>
       <br />
      <div class="field">

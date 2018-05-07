@@ -1,6 +1,10 @@
 class ProfilesController < ApplicationController
 
   before_action :authenticate_user!
+
+  def index
+    @profiles = Profile.all
+  end
   def show
     redirect_to :root unless user_signed_in?
     @profile = current_user.profile
@@ -14,14 +18,17 @@ def create
     @profile = Profile.new(profile_params)
     @profile.user = current_user
 
-    if @profile.save
-        flash[:notice] = 'Profile Updated'
-        redirect_to root_path
-    else
-        flash[:alert] = 'Could not save profile'
-        redirect_back(fallback_location: root_path)
+    respond_to do |format|
+      if @profile.save
+        format.html { redirect_to @profile, notice: "Post was successfully created." }
+        format.json { render :show, status: :created, location: @profile }
+      else
+        format.html { render :new }
+        format.json { render json: @profile.errors, status: :unprocessable_entity }
+      end
     end
-end
+  end
+
 
 def update
     @profile = current_user.profile
@@ -42,7 +49,7 @@ def profile_params
         :first_name, 
         :last_name,
         :date_of_birth,
-        :image_data,
+        :image,
         :house_number,
         :street_name,
         :suburb,
