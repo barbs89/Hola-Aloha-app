@@ -1,23 +1,19 @@
 <h1>Your Profile</h1>
 
+<%= image_tag @profile.image_url(:medium) unless @profile.image_data.nil? %>
+<br />
 <p>
-    <p>First Name: <%= @profile.first_name %></p>
+    <strong>Full Name:</strong>
+    <%= @profile.full_name %>
 </p>
 <p>
-    <p>Last Name: <%= @profile.last_name %></p>
+    <strong>Date of Birth:</strong>
+    <%= @profile.date_of_birth %>
 </p>
+
 <p>
-    <p>Date of Birth: <%= @profile.date_of_birth %></p>
-</p>
-    <p> Image: <%= image_tag @profile.image_url(:medium) unless @profile.image_data.nil? %></p>
-<p>
-    <p>Address: <%= @profile.house_number %> <%= @profile.street_name %> <%= @profile.suburb %> <%= @profile.postcode %></p>
-</p>
-<p>
-    <p>State: <%= @profile.state %></p>
-</p>
-<p>
-    <p>Country: <%= @profile.country %></p>
+    <strong>Address:</strong>
+    <%= @profile.full_address %>
 </p>
 
 
