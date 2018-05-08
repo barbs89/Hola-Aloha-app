@@ -13,3 +13,213 @@
  *= require_tree .
  *= require_self
  */
+ @import url(font-awesome.min.css);
+
+ 
+ h1, h2, footer, header, nav, menu, span, ul, li {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+ header, nav, footer {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    padding-top: 6em;
+}
+
+
+/* Header */
+
+
+#header {
+    -moz-align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    background: #5D2E8C;
+    cursor: default;
+    height: 6em;
+    left: 0;
+    line-height: 6em;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10001;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.075);
+    text-align: center;
+}
+
+#header .logo {
+    color: #fff;
+    font-family: 'Gill Sans';
+    font-size: 40px;
+    letter-spacing: 2px;
+    margin-top: -5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+#header nav {
+    position: absolute;
+    top: 0;
+    height: inherit;
+    line-height: inherit;
+}
+#header nav.right {
+    right: 2em;
+}
+#header nav .button {
+    padding: 0 2em;
+    height: 3.25em;
+    line-height: 3.25em;
+}
+#header nav a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+            
+@media screen and (max-width: 980px) {
+
+    body {
+        padding-top: 44px;
+    }
+
+    #header {
+        height: 55px;
+        line-height: 44px;
+    }
+
+    #header .logo {
+        font-size: 30px;
+        padding:10px;
+        float: left;
+    }
+
+    #header nav.left {
+        left: 1em;
+    }
+
+    #header nav.right {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+
+    #header {
+        min-width: 320px;
+    }
+
+}
+
+
+
+/* Footer */
+
+#footer {
+    padding: 6em 0 4em 0;
+    background: #2EC4B6;
+    text-align: center;
+    color: #c8e7f0;
+    
+    
+}
+
+    #footer h2 {
+        color: #fff;
+    }
+
+    #footer .icon {
+        color: #f6755e;
+    }
+
+    #footer a {
+        color: #c8e7f0;
+        text-decoration: none;
+    }
+
+    #footer ul li {
+        padding: 0 2em;
+    }
+
+    #footer .copyright {
+        display: inline-block;
+        color: #a7d9e7;
+        font-size: 0.75em;
+        margin: 0 0 2em 0;
+        padding: 0;
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.25);
+        padding: 2em 10em;
+    }
+
+    @media screen and (max-width: 980px) {
+
+        #footer {
+            padding: 3em 0 1em 0;
+        }
+
+            #footer ul li {
+                display: block;
+                padding: .25em 0;
+            }
+
+    }
+
+    @media screen and (max-width: 736px) {
+
+        #footer .copyright {
+            padding: 2em 5em;
+        }
+
+    }
+
+    @media screen and (max-width: 480px) {
+
+        #footer {
+            padding: 2em 0 0.1em 0;
+        }
+
+            #footer ul li {
+                font-size: .9em;
+            }
+
+                #footer ul li .icon:before {
+                    margin-left: -1em;
+                }
+
+            #footer .copyright {
+                padding: 2em 0;
+            }
+
+    }
+
+    /* Icon */
+
+	.icon {
+		text-decoration: none;
+		border-bottom: none;
+		position: relative;
+	}
+
+		.icon:before {
+			-moz-osx-font-smoothing: grayscale;
+			-webkit-font-smoothing: antialiased;
+			font-family: FontAwesome;
+			font-style: normal;
+			font-weight: normal;
+			text-transform: none !important;
+		}
+
+		.icon > .label {
+			display: none;
+		}

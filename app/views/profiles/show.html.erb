@@ -16,7 +16,12 @@
     <%= @profile.full_address %>
 </p>
 
+<% if user_signed_in? %>
+    <%= link_to "Edit Profile", profile_edit_path %> 
+<% else %>
+<% end %>
 
+<hr>
 
 <h2>Incomplete Translations</h2>
 <%= render 'jobs/jobs', jobs: @jobs_incomplete %>
@@ -26,11 +31,4 @@
 <h2>Completed Translations</h2>
 <%= render 'jobs/jobs', jobs: @jobs_complete %>
 
-<% if user_signed_in? %>
-    <%= link_to "Home", root_path %> |
-    <%= link_to "Edit Profile", profile_edit_path %> |
-    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-<% else %>
-    <%= link_to "Login", new_user_session_path %> |
-    <%= link_to "Sign up", new_user_registration_path %>
-<% end %>
+

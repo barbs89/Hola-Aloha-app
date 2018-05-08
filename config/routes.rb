@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   # post '/requests/new', to: 'requests#new'
   # post '/requests/show', to: 'requests#create'
   
-resources :requests
+  resources :requests
   devise_for :users
+
+  get '/contact', to: 'pages#contact'
 
   get '/profile', to: 'profiles#show'
   post '/profile', to: 'profiles#create'

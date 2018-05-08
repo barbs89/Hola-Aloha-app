@@ -19,16 +19,16 @@ pre {
   font-size: 11px;
 }
 
-a {
-  color: #000;
+#header a {
+  color: #fff;
 
-  &:visited {
-    color: #666;
+&:active {
+    color: #2EC4B6;
   }
 
-  &:hover {
-    color: #fff;
-    background-color: #000;
+ &:hover {
+    color: #F77723;
+    background-color: transparent
   }
 }
 
