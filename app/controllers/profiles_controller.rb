@@ -8,7 +8,9 @@ class ProfilesController < ApplicationController
   def show
     redirect_to :root unless user_signed_in?
     @profile = current_user.profile
-end
+    @jobs_incomplete = Job.where(user: current_user, completed_at: nil)
+    @jobs_complete = Job.where(user: current_user).where.not(completed_at: nil)
+ end
 
 def edit
     @profile = Profile.find_or_initialize_by(user: current_user)

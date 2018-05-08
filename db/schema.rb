@@ -10,10 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_07_093202) do
+ActiveRecord::Schema.define(version: 2018_05_08_054950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "jobs", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "language_from_id"
+    t.bigint "language_to_id"
+    t.string "subject"
+    t.text "description"
+    t.decimal "price"
+    t.datetime "paid_at"
+    t.string "stripe_charge_id"
+    t.datetime "completed_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "file_data"
+    t.index ["language_from_id"], name: "index_jobs_on_language_from_id"
+    t.index ["language_to_id"], name: "index_jobs_on_language_to_id"
+    t.index ["user_id"], name: "index_jobs_on_user_id"
+  end
+
+  create_table "languages", force: :cascade do |t|
+    t.string "en"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "orders", force: :cascade do |t|
     t.string "subject"
@@ -57,6 +81,8 @@ ActiveRecord::Schema.define(version: 2018_05_07_093202) do
     t.datetime "completed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -76,6 +102,10 @@ ActiveRecord::Schema.define(version: 2018_05_07_093202) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "jobs", "languages", column: "language_from_id"
+  add_foreign_key "jobs", "languages", column: "language_to_id"
+  add_foreign_key "jobs", "users"
   add_foreign_key "orders", "users"
   add_foreign_key "profiles", "users"
+  add_foreign_key "requests", "users"
 end

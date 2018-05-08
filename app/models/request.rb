@@ -1,8 +1,9 @@
 class Request < ApplicationRecord
-    include ImageUploader::Attachment.new(:image)
+    
 
     belongs_to :user
     has_many :profiles
+    
 
     validates :subject, presence: true
     validates :description, presence: true, length: { minimum: 30 }

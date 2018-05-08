@@ -1,7 +1,7 @@
 class RequestsController < ApplicationController
-  before_action :authenticate_user!, :except => [:index, :show]
+  before_action :authenticate_user!
   before_action :set_request, only: [:show, :edit, :update, :delete]
-  before_action :set_profile
+  
  
   def index
     @requests = Request.all
@@ -12,8 +12,10 @@ class RequestsController < ApplicationController
   end
 
   def create
+    
     @request = Request.new(request_params)
     @request.user = current_user
+    
 
         if @request.save
             flash[:notice] = 'Your request has been submitted!'
@@ -26,12 +28,12 @@ class RequestsController < ApplicationController
 
   private
     def request_params
-        params.require(:request).permit(:subject, :description, :lang_from, :lang_to, :price, :user_id, :file_data)
+        params.require(:request).permit(:subject, :description, :lang_from, :lang_to, :price, :file_data, :user_id)
     end
     
-    def set_profile
-			@profile = Profile.find(current_user.id) if current_user.present?
-		end
+    # def set_profile
+		# 	@profile = Profile.find(current_user.id) if current_user.present?
+		# end
     def set_request
         @request = Request.find(params[:id])
     end

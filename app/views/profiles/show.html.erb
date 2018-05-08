@@ -20,6 +20,16 @@
     <p>Country: <%= @profile.country %></p>
 </p>
 
+
+
+<h2>Incomplete Translations</h2>
+<%= render 'jobs/jobs', jobs: @jobs_incomplete %>
+
+<hr>
+
+<h2>Completed Translations</h2>
+<%= render 'jobs/jobs', jobs: @jobs_complete %>
+
 <% if user_signed_in? %>
     <%= link_to "Home", root_path %> |
     <%= link_to "Logout", destroy_user_session_path, method: :delete %>

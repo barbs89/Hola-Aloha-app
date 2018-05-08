@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# seed languages into table
+
+# {en: 'English'}
+
+languages = [] 
+LanguageList::COMMON_LANGUAGES.each do |lang|
+   languages.push({en: lang.name})
+end
+
+Language.create!(languages) {|l| p l.en}
