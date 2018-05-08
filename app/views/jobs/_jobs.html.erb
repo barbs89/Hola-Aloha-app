@@ -1,5 +1,13 @@
+
 <ul>
 <% jobs.each do |job| %>
-    <li><%= job.subject %> from: <%= job.language_from.en %>  to: <%= job.language_to.en %></li>
+    <strong> Subject </strong>
+    <li><%= job.subject %> 
+    <br />
+    <strong>From:</strong>
+    from: <%= job.language_from.en %>
+    <br />
+    <strong>To:</strong>
+    <%= job.language_to.en %></li>
 <% end %>
 </ul>
