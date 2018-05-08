@@ -16,7 +16,7 @@
         <%= form.date_select :date_of_birth, start_year: 1900, end_year: Time.now.year, required: true  %>
     </div>
     <div class="field">
-        <%= form.label :image_data %>
+        <%= form.label :image %>
         <%= form.hidden_field :image, value: @profile.image %>
         <%= form.file_field :image, required: true%>
     </div>
@@ -57,3 +57,4 @@
 
 <% end %>
 
+<%= link_to "Cancel", profile_path %> 
