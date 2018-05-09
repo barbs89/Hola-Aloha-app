@@ -1,18 +1,18 @@
 class ProfilesController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_profile, only: [:show, :edit, :update, :destroy, :apply]
+#   before_action :set_profile, only: [:show, :edit, :update, :destroy, :apply]
   
 
   def index
     @profiles = Profile.all
   end
   def show
-    # redirect_to :root unless user_signed_in?
+    redirect_to :root unless user_signed_in?
     
     
     @profile = current_user.profile
-    authorize @profile
+   
     # user.present? && user == profile.user
     @jobs_incomplete = Job.where(user: current_user, completed_at: nil)
     @jobs_complete = Job.where(user: current_user).where.not(completed_at: nil)
@@ -20,7 +20,7 @@ class ProfilesController < ApplicationController
 
 def edit
     @profile = Profile.find_or_initialize_by(user: current_user)
-    authorize @profile
+    
     # user.present? && user == profile.user
 end
     
@@ -42,7 +42,7 @@ def create
 
 def update
     @profile = current_user.profile
-    authorize @profile
+    
     # user.present? && user == profile.user
 
     if @profile.update(profile_params)
@@ -72,8 +72,7 @@ private
             :country
         ])
     end
-    def set_profile
-        
-        authorize @profile
-      end
+    # def set_profile
+    #     @profile = Profile.find(params[:id])
+    # end
 end

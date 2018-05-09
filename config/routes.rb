@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   resources :requests
   devise_for :users
 
-  get '/contact', to: 'pages#contact'
+  get '/contact', to: 'pages#show'
+  post '/contact', to: 'pages#contact_email'
 
   get '/profile', to: 'profiles#show'
   post '/profile', to: 'profiles#create'
