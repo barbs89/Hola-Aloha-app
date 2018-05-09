@@ -1,13 +1,20 @@
 
-<ul>
+
 <% jobs.each do |job| %>
-    <strong> Subject </strong>
-    <li><%= job.subject %> 
-    <br />
-    <strong>From:</strong>
-    from: <%= job.language_from.en %>
-    <br />
-    <strong>To:</strong>
-    <%= job.language_to.en %></li>
-<% end %>
-</ul>
+<div class="table-wrapper">
+	<table>
+		<thead>
+			<tr>
+				<th>Subject</th>
+				<th>From:</th>
+				<th>To: </th>
+                <th>Price: </th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= job.subject %> </td><td><%= job.language_to.en %></td><td><%= job.language_to.en %></td><td><%= job.price %></td>	
+			<% end %>
+		</tbody>
+</table>
+</div>
