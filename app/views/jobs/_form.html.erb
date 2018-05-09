@@ -18,8 +18,6 @@
     <%= form.file_field :file %>
   </div>
 
-
-
   <div class="field">  
     <%= form.label :language_from_id %>
 		<%= form.collection_select :language_from_id, Language.order(:en),:id,:en, include_blank: true %>

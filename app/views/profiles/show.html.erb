@@ -1,34 +1,26 @@
-<h1>Your Profile</h1>
+    <div class="box">
+			<div class="image fit">
+            <%= image_tag @profile.image_url(:medium) unless @profile.image_data.nil? %>
+            </div>
+			<div class="content">
+				<h3><%= @profile.full_name %></h3>
+                <br />
+				<h4><%= @profile.date_of_birth %></h4>
+                <h4><%= @profile.full_address %></h4>
+			</div>
+		</div>
+    <br />
+    <% if policy(Profile).edit? %>
+    <%= link_to  "Edit Profile", profile_edit_path  %>
+    <% end %>
+    <br />
+    
+    <div id="jobstatus">
+         <%= render 'jobs/jobs', jobs: @jobs_incomplete %>
+        <%= render 'jobs/jobs', jobs: @jobs_complete %>
+    </div>
+</section>
 
-<%= image_tag @profile.image_url(:medium) unless @profile.image_data.nil? %>
-<br />
-<p>
-    <strong>Full Name:</strong>
-    <%= @profile.full_name %>
-</p>
-<p>
-    <strong>Date of Birth:</strong>
-    <%= @profile.date_of_birth %>
-</p>
 
-<p>
-    <strong>Address:</strong>
-    <%= @profile.full_address %>
-</p>
-
-<% if user_signed_in? %>
-    <%= link_to "Edit Profile", profile_edit_path %> 
-<% else %>
-<% end %>
-
-<hr>
-
-<h3>Incomplete Translations</h3>
-<%= render 'jobs/jobs', jobs: @jobs_incomplete %>
-
-<h3>
-
-<h1>Completed Translations</h3>
-<%= render 'jobs/jobs', jobs: @jobs_complete %>
 
 

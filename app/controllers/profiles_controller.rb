@@ -1,19 +1,26 @@
 class ProfilesController < ApplicationController
 
   before_action :authenticate_user!
+  after_action :verify_authorized, unless: :devise_controller?
 
   def index
     @profiles = Profile.all
   end
   def show
-    redirect_to :root unless user_signed_in?
+    # redirect_to :root unless user_signed_in?
+    
+    
     @profile = current_user.profile
+    authorize @profile
+    # user.present? && user == profile.user
     @jobs_incomplete = Job.where(user: current_user, completed_at: nil)
     @jobs_complete = Job.where(user: current_user).where.not(completed_at: nil)
  end
 
 def edit
     @profile = Profile.find_or_initialize_by(user: current_user)
+    authorize @profile
+    # user.present? && user == profile.user
 end
     
 def create
@@ -34,6 +41,8 @@ def create
 
 def update
     @profile = current_user.profile
+    authorize @profile
+    # user.present? && user == profile.user
 
     if @profile.update(profile_params)
         flash[:notice] = 'Profile Updated'
@@ -45,19 +54,22 @@ def update
     end
 end
 
+
+
 private
-def profile_params
-    params.require(:profile).permit([
-        :first_name, 
-        :last_name,
-        :date_of_birth,
-        :image,
-        :house_number,
-        :street_name,
-        :suburb,
-        :state,
-        :postcode,
-        :country
-    ])
-end
+    def profile_params
+        params.require(:profile).permit([
+            :first_name, 
+            :last_name,
+            :date_of_birth,
+            :image,
+            :house_number,
+            :street_name,
+            :suburb,
+            :state,
+            :postcode,
+            :country
+        ])
+    end
+
 end

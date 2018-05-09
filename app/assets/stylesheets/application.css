@@ -17,8 +17,9 @@
  */
  @import url(font-awesome.min.css);
 
- 
- h1, h2, h3, footer, header, nav, menu, span, ul, li, section, div {
+ /* Reset */
+
+ h1, h2, h3, footer, header, nav, menu, span, ul, li, section, div, section {
     margin: 0;
     padding: 0;
     border: 0;
@@ -26,7 +27,7 @@
     font: inherit;
     vertical-align: baseline;
 }
- header, nav, footer, section {
+ header, nav, footer, section, div {
     display: block;
 }
 
@@ -36,12 +37,16 @@ body {
 }
 
 h3{
-    color: #727a82;
+    color: #fff;
+    background-color: #F77723;
+    margin-top: 0;
+    padding: 5px;
     font-weight: 700;
     font-family: "Montserrat", sans-serif;
     line-height: 1.5;
     margin: 0 0 1em 0;
     font-size: 1.25em;
+    text-align: center;
 }
 
 h3 a{
@@ -148,6 +153,48 @@ body {
 
 /* Main */
 
+/* Box Model */
+
+.box {
+    border-radius: 4px;
+    border: 2px rgb(209, 206, 206);
+    margin: 0 2em 0 auto;
+    overflow: hidden;
+    width: 400px;
+    display: inline-block;
+    float: left;
+    box-shadow: 0 5px #bbb;
+    
+}
+
+.box .content {
+    text-align: center;
+}
+
+.box .content h3{
+
+    color: white;
+    background-color: #F77723;
+}
+
+.box .content h4{
+    color: #321A4B;
+    text-align: center;
+}
+.image.fit {
+    display: block;
+    margin: 0;
+    width: 100%;
+}
+
+.image.fit img {
+    width: 100%;
+}
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
 /* Banner */
 
@@ -251,7 +298,6 @@ body {
 
 /* Wrapper */
 
-
 #one .flex-item.left div:first-child, #one .flex-item.right div:first-child {
     padding-top: 1em;
 }
@@ -278,12 +324,12 @@ body {
     background-position: center top;
     background-repeat: no-repeat;
     text-align: center;
-    top: 30em;
+    top: 40em;
     left: 0;
     line-height: 1em;
     position: fixed;
     width: 100%;
-    z-index: 10001;
+   
    
 }
 
@@ -442,11 +488,11 @@ button,
 
 /* Form */
 
-form {
+#contact {
     margin: 0 2em 2em 0;
 }
 
-label {
+#contact label {
     color: #727a82;
     display: block;
     font-size: 0.9em;
@@ -643,6 +689,14 @@ input[type="radio"] + label:before {
 
 
 /* Table */
+#jobstatus {
+    float: left;
+}
+
+#jobstatus table{
+    margin: 0 0 2em 0;
+    width: 600px;
+}
 
 .table-wrapper {
     -webkit-overflow-scrolling: touch;
