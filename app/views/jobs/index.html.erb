@@ -1,16 +1,28 @@
+
+<head>
+		<title>Jobs</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="app/assets/stylesheets/application.css" />
+	</head>
 <p id="notice"><%= notice %></p>
 
-<h1>Jobs</h1>
+<h3>Jobs</h3>
 
+<%= form_with scope: :jobs, method: :get, local: true do |f| %>
+<%= f.label :search_jobs %>
+<%= f.text_field :search %>
+<%= f.submit :search %>
+<% end %> 
 <table>
   <thead>
     <tr>
-      <th>User</th>
-      <th>Language from</th>
-      <th>Language to</th>
-      <th>Subject</th>
-      <th>Description</th>
-      <th>Price</th>
+      <th>Customer Name:</th>
+      <th>Language from:</th>
+      <th>Language to:</th>
+      <th>Subject:</th>
+      <th>Description:</th>
+      <th>Price:</th>
       <th>Paid at</th>
       <th>Stripe charge</th>
       <th>Completed at</th>
@@ -21,9 +33,9 @@
   <tbody>
     <% @jobs.each do |job| %>
       <tr>
-        <td><%= job.user %></td>
-        <td><%= job.language_from %></td>
-        <td><%= job.language_to %></td>
+        <td><%= job.user.email %></td>
+        <td><%= job.language_from.en %></td>
+        <td><%= job.language_to.en %></td>
         <td><%= job.subject %></td>
         <td><%= job.description %></td>
         <td><%= job.price %></td>
@@ -37,9 +49,9 @@
     <% end %>
   </tbody>
 </table>
+<br />
 
-<br>
 
-<%= link_to 'Edit', edit_job_path %> |
 
+<br />
 <%= link_to 'New Job', new_job_path %>

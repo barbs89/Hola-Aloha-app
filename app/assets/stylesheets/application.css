@@ -15,7 +15,9 @@
  *= require_tree .
  *= require_self
  */
+ @charset "UTF-8";
  @import url(font-awesome.min.css);
+ @import url(scaffolds.scss);
 
  /* Reset */
 

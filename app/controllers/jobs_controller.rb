@@ -2,6 +2,33 @@ class JobsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_job, only: [:show, :edit, :update, :destroy, :apply]
   
+  # posts/:id/booking
+  def booking
+    if current_user.stripe_id.blank?
+      customer = Stripe::Customer.create(
+        email: params[:stripeEmail],
+        source: params[:stripeToken],
+      )
+      current_user.stripe_id = customer.id
+      current_user.save!
+    end
+
+    charge = Stripe::Charge.create(
+      customer: current_user.stripe_id,
+      amount: @job.price,
+      description: @job.description,
+      currency: "AUD",
+    )
+
+    # @post.bookings << current_user
+    # curent_user.charges << Charge.new(charge_id: charge.id)
+    flash[:notice] = "Payment made!"
+    redirect_back fallback_location: jobs_path
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to new_charge_path
+  end
+
   # GET /jobs
   # GET /jobs.json
   def index
@@ -32,7 +59,7 @@ class JobsController < ApplicationController
   # POST /jobs.json
   def create
     @job = Job.new(job_params)
-    @job.user = current_user
+    @job.user_id = current_user.id
     respond_to do |format|
       if @job.save
         format.html { redirect_to @job, notice: 'Job was successfully created.' }
@@ -72,7 +99,6 @@ class JobsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_job
       @job = Job.find(params[:id])
-      
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
