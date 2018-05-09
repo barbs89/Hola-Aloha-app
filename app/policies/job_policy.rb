@@ -4,14 +4,23 @@ class JobPolicy < ApplicationPolicy
         @user = user
         @job = job
     end
+    def index?
+        true
+    end
     
-
-    def update?
-        user == job.user
+    def create?
+        user.present?
     end
-
+    
     def edit?
-        update? 
+        return true if user.present? && user == job.user
     end
 
+    def destroy?
+        return true if user.present? && user == job.user
+    end
+
+    private
+ 
+    
 end

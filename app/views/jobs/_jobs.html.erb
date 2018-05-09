@@ -9,6 +9,7 @@
 				<th>From:</th>
 				<th>To: </th>
                 <th>Price: </th>
+				<th>Apply: </th>
 			</tr>
 		</thead>
 		<tbody>
@@ -18,8 +19,12 @@
 				<td><%= job.language_to.en %></td>
 				<td><%= job.language_to.en %></td>
 				<td><%= job.price %></td>	
+				<td><%= job.stripe_charge_id %></td>	
 			</tr>
 			<% end %>
 		</tbody>
 </table>
 </div>
+
+
+

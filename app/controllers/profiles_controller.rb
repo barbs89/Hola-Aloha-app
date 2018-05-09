@@ -1,7 +1,8 @@
 class ProfilesController < ApplicationController
 
   before_action :authenticate_user!
-  after_action :verify_authorized, unless: :devise_controller?
+  before_action :set_profile, only: [:show, :edit, :update, :destroy, :apply]
+  
 
   def index
     @profiles = Profile.all
@@ -71,5 +72,8 @@ private
             :country
         ])
     end
-
+    def set_profile
+        
+        authorize @profile
+      end
 end
