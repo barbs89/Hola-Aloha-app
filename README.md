@@ -19,18 +19,16 @@ Website:
 - **[ERD](#ERD)**
 - **[Workflow](#Workflow)**
 - **[Models](#Models)**
-- **[Controllers](#Controllers)**
 - **[Mood Board](#Mood_board)**
 - **[Colour Schemes](#Colour_schemes)**
 - **[Fonts](#Fonts)**
 - **[Wireframes](#Wireframes)**
     - [Mobile](#Mobile)
     - [Desktop](#Desktop)
-- **[Ruby Gems & Api's Used](#Ruby_Gems_&_Api's_Used)**
+- **[Ruby Gems and Api's Used](#Ruby_Gems_and_Api's_Used)**
     - [Gems](#Gems)
     - [Api's](#Api's)
-- **[Problems](#Problems)**
-- **[Solutions](#Solutions)**
+- **[Problems & Solutions](#Problems_and_Solutions)**
 - **[Final Review](#Final_review)**
 
 ## **The Design Process**
@@ -78,6 +76,8 @@ Current language exchange services:
 ***
 **[Trello Board - Hola! Aloha! Marketplace](https://trello.com/b/zh6GFXyq/hola-aloha-marketplace#)**
 
+>![Workflow](readmeimages/trello.png)
+
 >### **USER STORIES**
 
 My Users consist of two profiles - Customers and Interpreters. Users can sign-up, but will need to create a profile before initializing an order through the application. Customers and Interpreters will be able to communicate via an instant message notification system to ensure speedy response times by both users. Both Customers and Interpreters can send a request for an order; thus eliminating the need to create multiple profiles.
@@ -116,34 +116,32 @@ I developed a workflow document to provide a visual representation of how my web
 
 ```
 User
-- email :varchar
-- password :varchar
+- email :string
+- password :string
 
 Profile 
-- first_name :varchar
-- last_name :varchar
-- image_data :varchar
+- first_name :string
+- last_name :string
+- image_data :text
 - date_of_birth :date
-- short_bio :text
-- translator_since :date
-- house_no :integer
-- street_name :varchar
-- suburb :varchar
-- state :varchar
-- postcode :integer
-- country_code :integer
+- house_no :string
+- street_name :string
+- suburb :string
+- state :string
+- postcode :string
+- country :string
 
 Languages
-- language_name :varchar
+- en :string
 
-UsersToLanguages
-
-Orders
-- description :varchar
+Jobs
+- subject: text
+- description :text
 - file_data :text
-- completed_at :timestamp
-
-Invoices
+- price :integer
+- paid_at :datetime
+- stripe_charge_id :string
+- completed_at :string
 
 Conversations
 - sender_id :integer
@@ -158,10 +156,6 @@ Review
 - rating :decimal
 
 ```
-
-## **Controllers**
-***
-
 
 ## **Mood Board**
 ***
@@ -191,7 +185,7 @@ Review
 
 ![Desktop](readmeimages/desktop.png)
 
-## **Ruby Gems & Api's Used**
+## **Ruby Gems and Api's Used**
 ***
 
 >### **Gems**
@@ -204,17 +198,22 @@ Review
 - **Shrine** (File Attachment)
 - **Mailgun** (Transactional Emails
 - **Faker** (Generates fake data)
+- **Language Lists** (Generates Languages)
+- **PG** (Postgres)
 
 >### **API's**
 
 - **Stripe** (Payments)
 - **Mailgun** (Transactional Emails)
 
-## **Problems**
+## **Problems and Solutions**
 ***
 
-## **Solutions**
-***
+> ## _"Where do I start???!!!"_
+
+![Whymeme](readmeimages/whymeme.png)
+
+
 
 ## **Final Review**
 ***
