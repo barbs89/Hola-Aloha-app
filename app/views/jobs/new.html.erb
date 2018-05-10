@@ -1,7 +1,16 @@
+<head>
+		<title>New Job</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="jobs/stylesheet" href="app/assets/stylesheets/application.css" />
+	</head>
+
 <h1>New Job</h1>
 
 
 <%= render 'form', job: @job %>
+
+
 
 <% if user_signed_in? %>
     <%= link_to "Cancel", root_path %> |
@@ -10,4 +19,6 @@
     <%= link_to "Login", new_user_session_path %> |
     <%= link_to "Sign up", new_user_registration_path %>
 <% end %>
+
+
 

@@ -1,9 +1,11 @@
 <head>
-<meta charset="utf-8" />
+		<title>Hola Aloha</title>
+		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="app/assets/stylesheets/application.css" />
-</head>
-!-- Banner -->
+		<link rel="pages/stylesheet" href="app/assets/stylesheets/application.css" />
+	</head>
+
+<!-- Banner -->
 <section id="banner">
 		<div class="content">
 			<h1>FAST. RELIABLE. TRUSTED</h1>
@@ -28,7 +30,7 @@
 					<div class="flex-item right">
 						<div>
                             <% if user_signed_in? %>
-							    <h4><a href="/jobs">View Translation Jobs</a></h4>
+							    <h4><a href="/jobs/index">View Translation Jobs</a></h4>
 								<p>View all current job listings</p>
 							<% else %>
 							<% end %>
