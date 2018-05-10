@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_job, only: [:show, :edit, :update, :destroy, :apply]
+  before_action :set_job, only: [:show, :edit, :update, :destroy, :apply, :booking]
   
   # posts/:id/booking
   def booking
@@ -14,7 +14,7 @@ class JobsController < ApplicationController
     end
 
     charge = Stripe::Charge.create(
-      customer: current_user.stripe_id,
+      customer: current_user.stripe_charge_id,
       amount: @job.price,
       description: @job.description,
       currency: "AUD",
@@ -64,7 +64,9 @@ class JobsController < ApplicationController
   # POST /jobs.json
   def create
     @job = Job.new(job_params)
-    @job.user_id = current_user.id
+    # @job.user_id = current_user.id
+    @job.user = current_user
+    
     respond_to do |format|
       if @job.save
         format.html { redirect_to @job, notice: 'Job was successfully created.' }
@@ -108,6 +110,6 @@ class JobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:language_from_id, :language_to_id, :subject, :description, :price, :file)
+      params.require(:job).permit(:language_from_id, :language_to_id, :subject, :description, :price, :completed_at)
     end
 end

@@ -40,4 +40,6 @@
   <%= @job.completed_at %>
 </p>
 
+<%= render 'chargeform', job: @job %>
+
 <%= link_to 'Back', jobs_path %>
