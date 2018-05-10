@@ -29,6 +29,7 @@ Website:
     - [Gems](#Gems)
     - [Api's](#Api's)
 - **[Problems & Solutions](#Problems_and_Solutions)**
+- **[Improvements](#Improvements)**
 - **[Final Review](#Final_review)**
 
 ## **The Design Process**
@@ -213,8 +214,46 @@ Review
 
 ![Whymeme](readmeimages/whymeme.png)
 
+>### **Encounters**
 
+During my development process, I encountered numerous problems - anywhere from the design stage to deploying my website Heroku.
+
+In summary, below is a display of problems/errors encountered along the way.
+
+This includes any students/teachers that may have contributed with solving the issue/s at the time.
+___
+
+| Type  | Problem | Solved?  |  Contributers? |
+------------- | ------------- | ------------- | -------------
+| _**Models ERD**_  | Incorrect relationships & references | `Yes` | Ruegen 
+| _**Faker GEM**_  | Unable to create 'fake' users | `Yes` | Pete
+| _**Pundit GEM**_  | Unable to get Pundit to work | `No` |  
+| _**Stripe GEM**_  | Issues with 'price' and params | `Yes` | Richard & Meng
+| _**Shrine GEM**_  | Unable to display images | `Yes` | Mill
+| _**Mailgun GEM**_  | Unable to make gem work | `Yes` | Meng
+| _**Search Bar**_  | Unable to search 'jobs' in search field | `No` | 
+| _**Stylesheets**_  | Stylesheets not loading properly | `Yes` | 
+| _**Heroku**_  | Issues deploying | `Yes` | Pete & Meng
+| _**MVC**_  | Methods and params | `~` | Meng/Pete/Cameo/Matt
+| _**Routing**_  | Countless routing issues | `Yes` | 
+| _**Tables**_  | _N/A_ | `N/A` | Maxi
+
+## **Improvements**
+***
+
+- Ensure ERD is correct - triple check if _**Necessary!!**_
+- Git branch! Git commit! I didn't use it at the start as much as I needed to
+- Collaborate with other students and teachers more to bounce ideas/solve problems
+- Careful with scaffold (could get messy at times)
+- Leave styling to the end
+
+>..There's __"Always"__ room for improvement
 
 ## **Final Review**
 ***
+
+Although difficult and  _**"EXTREMELY"**_ tiresome, this assignment has pushed the boundaries - and in doing so - has given me a great learning experience and beyond what I thought I could achieve in a short amount of time.
+
+ROR has a lot to offer - and I see how it has been used by so many developers.
+
 

@@ -34,8 +34,10 @@
 }
 
 body {
-    line-height: 1;
+
     padding-top: 6em;
+    margin: 0;
+    -ms-overflow-style: scrollbar;
 }
 
 h3{
@@ -62,9 +64,6 @@ h3 a{
     width: device-width;
 }
 
-body {
-    -ms-overflow-style: scrollbar;
-}
 
 /* Header */
 
