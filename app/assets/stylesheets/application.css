@@ -21,7 +21,7 @@
 
  /* Reset */
 
- h1, h2, h3, footer, header, nav, menu, span, ul, li, section, div, section {
+ h1, h2, h3, html, body, form, label, table, footer, header, nav, menu, span, ul, li, section, div, section {
     margin: 0;
     padding: 0;
     border: 0;
@@ -35,9 +35,7 @@
 
 body {
 
-    padding-top: 6em;
-    margin: 0;
-    -ms-overflow-style: scrollbar;
+    line-height: 1;
 }
 
 h3{
@@ -46,7 +44,7 @@ h3{
     margin-top: 0;
     padding: 5px;
     font-weight: 700;
-    font-family: "Montserrat", sans-serif;
+    
     line-height: 1.5;
     margin: 0 0 1em 0;
     font-size: 1.25em;
