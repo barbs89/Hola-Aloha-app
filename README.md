@@ -4,6 +4,8 @@
 
 Website:
 [HolaAloha!](https://thawing-hamlet-85826.herokuapp.com/)
+Github:
+[Github](https://github.com/barbs89/Hola-Aloha-app)
 
 ## **CONTENTS**
 ***
