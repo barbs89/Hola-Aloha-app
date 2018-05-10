@@ -21,7 +21,28 @@
 
  /* Reset */
 
+<<<<<<< HEAD
  h1, h2, h3, html, body, form, label, table, footer, header, nav, menu, span, ul, li, section, div, section {
+=======
+.field {
+    width: 60%;
+   
+}
+
+.dob {
+    display: flex;
+    margin-top: 1px;
+    width: 60%;
+}
+
+.address {
+    display: flex;
+    margin-top: 1px;
+    width: 60%;
+}
+
+ h1, h2, h3, footer, header, nav, menu, span, ul, li, {
+>>>>>>> tables
     margin: 0;
     padding: 0;
     border: 0;
@@ -33,9 +54,19 @@
     display: block;
 }
 
+<<<<<<< HEAD
 body {
 
     line-height: 1;
+=======
+body, html {
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    height: 100vh;
+    padding-top: 6em;
+>>>>>>> tables
 }
 
 h3{
