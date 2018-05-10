@@ -9,6 +9,6 @@ class Job < ApplicationRecord
   #   "#{first_name} #{last_name}"
   # end
   def self.search_by_language(search)
-    where("LOWER(Language) LIKE ?", "%#{search.downcase}%")
+    where("LOWER(language) LIKE ?", "%#{search.downcase}%")
 end
 end

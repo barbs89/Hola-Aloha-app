@@ -1,38 +1,37 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_job, only: [:show, :edit, :update, :destroy, :apply]
+  before_action :set_job, only: [:show, :edit, :update, :destroy, :apply, :charge]
   
   # posts/:id/booking
-  def booking
-    if current_user.stripe_id.blank?
-      customer = Stripe::Customer.create(
-        email: params[:stripeEmail],
-        source: params[:stripeToken],
-      )
-      current_user.stripe_id = customer.id
-      current_user.save!
-    end
+  def charge
+    amount = @job.price
 
-    charge = Stripe::Charge.create(
-      customer: current_user.stripe_id,
-      amount: @job.price,
-      description: @job.description,
-      currency: "AUD",
+    customer = Stripe::Customer.create(
+      email:  params[:stripeEmail],
+      source: params[:stripeToken]
     )
 
-    # @post.bookings << current_user
-    # curent_user.charges << Charge.new(charge_id: charge.id)
-    flash[:notice] = "Payment made!"
-    redirect_back fallback_location: jobs_path
-  rescue Stripe::CardError => e
-    flash[:error] = e.message
-    redirect_to new_charge_path
+    charge = Stripe::Charge.create(
+      customer:     customer.id,
+      amount:       amount,
+      description:  @job.description,
+      currency:     'aud'
+    )
+
+    flash[:notice] = 'Payment made!'
+
+    redirect_to jobs_path
   end
 
   # GET /jobs
   # GET /jobs.json
   def index
+    unless params[:job].present?
     @jobs = Job.all
+    else
+    language_name = params[:language_from][:search]
+    @jobs = Job.search_by_language(language_name)
+    end
   end
 
   def apply
@@ -59,7 +58,9 @@ class JobsController < ApplicationController
   # POST /jobs.json
   def create
     @job = Job.new(job_params)
-    @job.user_id = current_user.id
+    # @job.user_id = current_user.id
+    @job.user = current_user
+    
     respond_to do |format|
       if @job.save
         format.html { redirect_to @job, notice: 'Job was successfully created.' }
@@ -103,6 +104,6 @@ class JobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:language_from_id, :language_to_id, :subject, :description, :price, :file)
+      params.require(:job).permit(:language_from_id, :language_to_id, :subject, :description, :price, :completed_at)
     end
 end
