@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/tables', to: 'tables#all_tables'
+  get '/tables/table/:table_name', to: 'tables#table', as: 'table'
   root 'pages#home'
   
   get '/jobs/payjob', to: 'jobs#pay_jobs'
@@ -12,7 +14,7 @@ Rails.application.routes.draw do
   
   resources :jobs do
     member do
-      post :booking
+      post 'charge'
     end
   end
 

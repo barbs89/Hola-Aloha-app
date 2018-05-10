@@ -1,32 +1,26 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_job, only: [:show, :edit, :update, :destroy, :apply, :booking]
+  before_action :set_job, only: [:show, :edit, :update, :destroy, :apply, :charge]
   
   # posts/:id/booking
-  def booking
-    if current_user.stripe_id.blank?
-      customer = Stripe::Customer.create(
-        email: params[:stripeEmail],
-        source: params[:stripeToken],
-      )
-      current_user.stripe_id = customer.id
-      current_user.save!
-    end
+  def charge
+    amount = @job.price
 
-    charge = Stripe::Charge.create(
-      customer: current_user.stripe_charge_id,
-      amount: @job.price,
-      description: @job.description,
-      currency: "AUD",
+    customer = Stripe::Customer.create(
+      email:  params[:stripeEmail],
+      source: params[:stripeToken]
     )
 
-    # @post.bookings << current_user
-    # curent_user.charges << Charge.new(charge_id: charge.id)
-    flash[:notice] = "Payment made!"
-    redirect_back fallback_location: jobs_path
-  rescue Stripe::CardError => e
-    flash[:error] = e.message
-    redirect_to new_charge_path
+    charge = Stripe::Charge.create(
+      customer:     customer.id,
+      amount:       amount,
+      description:  @job.description,
+      currency:     'aud'
+    )
+
+    flash[:notice] = 'Payment made!'
+
+    redirect_to jobs_path
   end
 
   # GET /jobs
