@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'pages#home'
   
-  get '/jobs', to: 'pages#incomplete_jobs'
+  get '/jobs/payjob', to: 'jobs#pay_jobs'
   get '/jobs/index', to: 'jobs#index'
   # resources :jobs
 

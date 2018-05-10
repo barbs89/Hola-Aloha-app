@@ -32,7 +32,12 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
+    unless params[:job].present?
     @jobs = Job.all
+    else
+    language_name = params[:language_from][:search]
+    @jobs = Job.search_by_language(language_name)
+    end
   end
 
   def apply

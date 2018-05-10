@@ -26,7 +26,7 @@ gem 'stripe',       '~> 3.13'
 
 gem 'mailgun-ruby', '~> 1.1', '>= 1.1.9'
 gem 'faker',        '~> 1.8', '>= 1.8.7'
-gem 'ransack', github: 'activerecord-hackery/ransack'
+
 
 
 #Shrine despendecies

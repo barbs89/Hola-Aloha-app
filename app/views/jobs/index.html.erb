@@ -9,11 +9,12 @@
 
 <h3>Jobs</h3>
 
-<%= form_with scope: :jobs, method: :get, local: true do |f| %>
-<%= f.label :search_jobs %>
+<%= form_with scope: :language_from, method: :get, local: true do |f| %>
+<%= f.label :search_language_name %>
 <%= f.text_field :search %>
 <%= f.submit :search %>
-<% end %> 
+<% end %>
+ 
 <table>
   <thead>
     <tr>
