@@ -12,7 +12,6 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks',   '~> 5'
 gem 'jbuilder',     '~> 2.5'
 gem 'bootsnap',     '>= 1.1.0', require: false
-gem 'sqlite3'
 gem 'language_list', '~> 1.1'
 
 
@@ -26,7 +25,7 @@ gem 'stripe',       '~> 3.13'
 
 gem 'mailgun-ruby', '~> 1.1', '>= 1.1.9'
 gem 'faker',        '~> 1.8', '>= 1.8.7'
-
+gem 'pg',           '>= 0.18', '< 2.0'
 
 
 #Shrine despendecies
