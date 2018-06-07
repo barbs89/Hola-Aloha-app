@@ -7,6 +7,8 @@ Website:
 Github:
 [My Github](https://github.com/barbs89/Hola-Aloha-app)
 
+**Note - This project was part of an assignment given by our educational institute - **[Coder Academy](https://coderacademy.edu.au/)** - which we had a week to complete.*
+
 ## **CONTENTS**
 ***
 
