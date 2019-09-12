@@ -16,7 +16,7 @@ gem 'language_list', '~> 1.1'
 
 
 # Added Gems
-gem 'devise',       '~> 4.6'
+gem 'devise',       '~> 4.7'
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 
 gem 'pundit',       '~> 1.1'
