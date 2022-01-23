@@ -5,7 +5,7 @@ ruby '2.4.1'
 
 gem 'rails',        '~> 5.2.0'
 gem 'pg',           '>= 0.18', '< 2.0'
-gem 'puma',         '~> 3.11'
+gem 'puma',         '~> 5.5'
 gem 'sass-rails',   '~> 5.0'
 gem 'uglifier',     '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
@@ -29,7 +29,7 @@ gem 'pg',           '>= 0.18', '< 2.0'
 
 
 #Shrine despendecies
-gem 'shrine',       '~> 2.11'
+gem 'shrine',       '~> 3.3'
 gem 'mini_magick', '~> 4.9'
 gem 'fastimage', '~> 2.1', '>= 2.1.3'
 gem 'image_processing', '~> 1.2'
