@@ -29,7 +29,7 @@ gem 'pg',           '>= 0.18', '< 2.0'
 
 
 #Shrine despendecies
-gem 'shrine',       '~> 2.11'
+gem 'shrine',       '~> 3.3'
 gem 'mini_magick', '~> 4.9'
 gem 'fastimage', '~> 2.1', '>= 2.1.3'
 gem 'image_processing', '~> 1.2'
